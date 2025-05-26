@@ -9,7 +9,7 @@
 
 ChatUp is a modern, real-time chat application built with Spring Boot and WebSocket technology. It provides a seamless messaging experience with a clean, responsive user interface. This application demonstrates the implementation of real-time communication using WebSockets in a Java Spring Boot environment.
 
-![ChatUp Screenshot](https://via.placeholder.com/800x450.png?text=ChatUp+Screenshot)
+<img src="Snaps/Landing page.png" alt="Landing Page">
 
 ## ✨ Features
 
@@ -90,3 +90,12 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 6. **Real-time Updates**: Messages appear instantly for all connected users.
 
 ## 🔍 Project Structure
+<img src="Snaps/process.png" alt="process">
+
+## 📷 Snap Shots
+<img src="Snaps/Auth - window.png" alt="Auth - window" width="400" height="200">
+<img src="Snaps/Chat Room - 1.png" alt="Chat Room" width="500" height="400">
+<img src="Snaps/New User Joined.png" alt="New User Joined" width="500" height="50">
+<img src="Snaps/Final Chat.png" alt="Final Chat" width="500" height="500">
+
+
