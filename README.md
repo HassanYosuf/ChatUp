@@ -1,8 +1,9 @@
 # ChatUp - Real-time Chat Application
 
 [![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![WebSocket](https://img.shields.io/badge/WebSocket-STOMP-blue.svg)](https://docs.spring.io/spring-framework/reference/web/websocket.html)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📝 Overview
@@ -51,6 +52,10 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 - **SockJS**: WebSocket emulation for browsers without WebSocket support
 - **STOMP.js**: STOMP client for JavaScript
 
+### DevOps
+- **Docker**: Containerization for consistent deployment
+- **Render**: Cloud platform for hosting the application
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -58,6 +63,7 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 - Java JDK 17 or higher
 - Maven 3.6.0 or higher
 - Git
+- Docker (optional for containerized deployment)
 
 ### Installation
 
@@ -79,7 +85,21 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 
 4. Access the application:
    Open your browser and navigate to `http://localhost:8080`
+   
+## 🚢 Deploying to Render
 
+1. Create a new Web Service on Render:
+   - Connect your GitHub repository
+   - Select "Docker" as the environment
+   - Choose the appropriate instance type (at least 512MB RAM recommended)
+   - Set the "Port" environment variable to match the port in your application (default: 8080)
+
+2. Configure environment variables (if needed):
+   - Add any custom environment variables required by your application
+
+3. Deploy:
+   - Click "Create Web Service" and Render will automatically build and deploy your application
+   - Access your application at the URL provided by Render
 ## 🧪 How It Works
 
 1. **WebSocket Configuration**: The application configures WebSocket endpoints and message brokers.
@@ -98,4 +118,16 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 <img src="Snaps/New User Joined.png" alt="New User Joined" width="500" height="50">
 <img src="Snaps/Final Chat.png" alt="Final Chat" width="500" height="500">
 
+
+### Key Files
+
+- `Dockerfile`: Configuration for containerizing the application
+- `src/main/java/com/chatup/chatup/Config/WebSocketConfig.java`: WebSocket configuration
+- `src/main/java/com/chatup/chatup/Controller/`: Contains controllers for handling WebSocket communications
+- `src/main/resources/static/`: Frontend resources including HTML, CSS, and JavaScript
+- `src/main/resources/application.properties`: Application configuration
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
