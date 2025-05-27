@@ -1,42 +1,32 @@
-# Use OpenJDK 17 as the base image for building
-FROM eclipse-temurin:17-jdk-jammy as build
+# Use the official Maven image for building the application
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 
 # Set the working directory in the container
 WORKDIR /app
 
-# First, copy the entire project to ensure all necessary files are available
-# This is more resilient than copying individual directories
-COPY . .
+# Copy the pom.xml file
+COPY pom.xml .
 
-# Make the Maven wrapper executable
-RUN chmod +x mvnw
+# Copy the source code
+COPY src ./src/
 
-# Build the application
-RUN ./mvnw package -DskipTests
+# Package the application
+RUN mvn clean package -DskipTests
 
-# Use JRE for the runtime image to reduce size
+# Create the runtime container
 FROM eclipse-temurin:17-jre-jammy
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the built jar file from the build stage
+# Copy the jar file from the build stage
 COPY --from=build /app/target/*.jar app.jar
-
-# Create a non-root user to run the application
-RUN groupadd -r spring && useradd -r -g spring spring
-
-# Change ownership to the non-root user
-RUN chown spring:spring /app/app.jar
-
-# Use the non-root user to run the application
-USER spring
 
 # Expose the port the app runs on
 EXPOSE 8080
 
 # Set JVM options for containerized environment
-ENV JAVA_OPTS="-Xms256m -Xmx512m -XX:+UseContainerSupport"
+ENV JAVA_OPTS="-Xms256m -Xmx512m"
 
-# Run the jar file
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+# Run the application
+CMD java $JAVA_OPTS -jar app.jar
