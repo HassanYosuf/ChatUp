@@ -4,15 +4,12 @@ FROM eclipse-temurin:17-jdk-jammy as build
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the Maven wrapper and pom.xml
-COPY .mvn/ .mvn/
-COPY mvnw pom.xml ./
+# First, copy the entire project to ensure all necessary files are available
+# This is more resilient than copying individual directories
+COPY . .
 
-# Download all dependencies (separate layer for caching)
-RUN chmod +x ./mvnw && ./mvnw dependency:go-offline -B
-
-# Copy the project source
-COPY src ./src/
+# Make the Maven wrapper executable
+RUN chmod +x mvnw
 
 # Build the application
 RUN ./mvnw package -DskipTests
@@ -20,21 +17,20 @@ RUN ./mvnw package -DskipTests
 # Use JRE for the runtime image to reduce size
 FROM eclipse-temurin:17-jre-jammy
 
-# Create a non-root user to run the application
-RUN addgroup --system --gid 1001 appuser \
-    && adduser --system --uid 1001 --gid 1001 appuser
-
 # Set the working directory
 WORKDIR /app
 
 # Copy the built jar file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
+# Create a non-root user to run the application
+RUN groupadd -r spring && useradd -r -g spring spring
+
 # Change ownership to the non-root user
-RUN chown -R appuser:appuser /app
+RUN chown spring:spring /app/app.jar
 
 # Use the non-root user to run the application
-USER appuser
+USER spring
 
 # Expose the port the app runs on
 EXPOSE 8080
