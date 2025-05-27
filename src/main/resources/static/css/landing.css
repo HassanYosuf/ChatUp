@@ -263,7 +263,6 @@ footer {
 }
 
 .footer-links h3, 
-.footer-tech h3 {
 .footer-tech h3,
 .footer-github h3 {
   font-size: 1.125rem;
@@ -376,10 +375,8 @@ footer {
   }
   
   .footer-links,
-  .footer-tech {
   .footer-tech,
   .footer-github {
     text-align: center;
   }
 }
-
