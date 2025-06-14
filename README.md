@@ -71,7 +71,7 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/chatup.git
+   git clone https://github.com/HassanYosuf/chatup.git
    cd chatup
    ```
 
