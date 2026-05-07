@@ -145,28 +145,20 @@ ChatUp v2 adds a built-in Groq-powered AI assistant. Type `@ai` followed by any 
 
 <img src="Snaps%20V2/process.png" alt="Project Structure">
 
-## 📷 Screenshots — V1 → V2
+## 📷 Screenshots
 
 ### Landing Page
-| V1 | V2 |
-|:--:|:--:|
-| <img src="Snaps%20V1/Landing%20page.png" alt="Landing V1" width="420"> | <img src="Snaps%20V2/Landing%20page.png" alt="Landing V2" width="420"> |
+<img src="Snaps%20V2/Landing%20page.png" alt="Landing Page" width="860">
 
 ### Login / Auth Screen
-| V1 | V2 |
-|:--:|:--:|
-| <img src="Snaps%20V1/Auth%20-%20window.png" alt="Auth V1" width="420"> | <img src="Snaps%20V2/Auth%20-%20window.png" alt="Auth V2" width="420"> |
+<img src="Snaps%20V2/Auth%20-%20window.png" alt="Auth Screen" width="860">
 
-### Chat Room
-| V1 | V2 (with AI replies) |
-|:--:|:--:|
-| <img src="Snaps%20V1/Chat%20Room%20-%201.png" alt="Chat V1" width="420"> | <img src="Snaps%20V2/Chat%20Room%20-%201.png" alt="Chat V2" width="420"> |
+### Chat Room (with AI replies)
+<img src="Snaps%20V2/Chat%20Room%20-%201.png" alt="Chat Room" width="860">
 
 ### User Presence & Final Chat
-| V1 | V2 |
-|:--:|:--:|
-| <img src="Snaps%20V1/New%20User%20Joined.png" alt="Join V1" width="420"> | <img src="Snaps%20V2/New%20User%20Joined.png" alt="Join V2" width="420"> |
-| <img src="Snaps%20V1/Final%20Chat.png" alt="Final V1" width="420"> | <img src="Snaps%20V2/Final%20Chat.png" alt="Final V2" width="420"> |
+<img src="Snaps%20V2/New%20User%20Joined.png" alt="New User Joined" width="860">
+<img src="Snaps%20V2/Final%20Chat.png" alt="Final Chat" width="860">
 
 
 ### Key Files
