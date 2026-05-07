@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>ChatUp</title>
+    <title>ChatUp — Real-time Chat with AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/landing.css" />
 </head>
 <body>
+
+    <!-- ── Navigation ── -->
     <header>
         <nav>
             <div class="logo">
@@ -22,80 +27,116 @@
         </nav>
     </header>
 
+    <!-- ── Hero ── -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Connect Instantly with ChatUp</h1>
-            <p>A modern, real-time chat application with a clean and intuitive interface. Now with Docker support for easy deployment.</p>
-            <a href="index.html" class="cta-button">Enter Chat Room</a>
-        </div>
-        <div class="hero-image">
-            <img src="images/chat-illustration.svg" alt="Chat Illustration" onerror="this.src='https://via.placeholder.com/500x400?text=Chat+Illustration'">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">✦ Now with Groq AI</div>
+                <h1>Connect Instantly<br><span>with ChatUp</span></h1>
+                <p>A modern real-time chat application. Type <strong>@ai</strong> in any room to get instant answers from a Groq-powered AI — right inside the conversation.</p>
+                <div class="hero-actions">
+                    <a href="index.html" class="hero-cta-primary">Enter Chat Room →</a>
+                    <a href="https://github.com/HassanYosuf/ChatUp" target="_blank" class="hero-cta-secondary">⭐ View on GitHub</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">WebSocket</span>
+                        <span class="stat-label">Real-time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">Groq AI</span>
+                        <span class="stat-label">Powered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">Docker</span>
+                        <span class="stat-label">Ready</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/chat-illustration.svg" alt="Chat Illustration"
+                     onerror="this.style.display='none'">
+            </div>
         </div>
     </section>
 
+    <!-- ── Features ── -->
     <section id="features" class="features">
-        <h2>Features</h2>
+        <span class="section-tag">What's included</span>
+        <h2>Everything you need</h2>
+        <p class="section-subtitle">A complete real-time chat experience — out of the box, no setup needed.</p>
         <div class="feature-grid">
+            <div class="feature-card ai-highlight">
+                <div class="feature-icon-wrap">🤖</div>
+                <h3>AI Assistant</h3>
+                <p>Type <code>@ai</code> to ask anything. Groq's LLaMA model replies instantly, right in the chat room.</p>
+            </div>
             <div class="feature-card">
-                <div class="feature-icon">💬</div>
+                <div class="feature-icon-wrap">💬</div>
                 <h3>Real-time Messaging</h3>
-                <p>Exchange messages instantly with other users in the chat room.</p>
+                <p>Exchange messages instantly with other users over WebSocket — zero page reloads.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">👤</div>
+                <div class="feature-icon-wrap">👤</div>
                 <h3>User Presence</h3>
-                <p>See when users join or leave the chat room.</p>
+                <p>See live join and leave events as users enter or exit the chat room.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
+                <div class="feature-icon-wrap">🎨</div>
                 <h3>Colorful Avatars</h3>
-                <p>Each user gets a unique colorful avatar for easy identification.</p>
+                <p>Every user gets a unique color avatar auto-generated from their name.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📱</div>
+                <div class="feature-icon-wrap">📱</div>
                 <h3>Responsive Design</h3>
-                <p>Works seamlessly on both desktop and mobile devices.</p>
+                <p>Works beautifully on desktop and mobile with an adaptive layout.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🐳</div>
+                <div class="feature-icon-wrap">🐳</div>
                 <h3>Docker Ready</h3>
-                <p>Deploy anywhere with our containerized solution using Docker.</p>
+                <p>Containerized and ready to ship — deploy anywhere with a single command.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">☁️</div>
+                <div class="feature-icon-wrap">☁️</div>
                 <h3>Cloud Compatible</h3>
-                <p>Ready for deployment on cloud platforms like Render.</p>
+                <p>Deployed on Render with zero-config cloud hosting support.</p>
             </div>
         </div>
     </section>
 
+    <!-- ── About ── -->
     <section id="about" class="about">
         <div class="about-content">
             <h2>About ChatUp</h2>
-            <p>ChatUp is a modern real-time chat application built with Spring Boot and WebSocket technology. It provides a seamless messaging experience with a clean, responsive user interface.</p>
-            <p>The application uses STOMP over WebSocket to enable real-time communication between users. Join the chat room by simply entering your name!</p>
+            <p>ChatUp is a modern real-time chat application built with Spring Boot and WebSocket technology. It uses STOMP over SockJS to enable instant communication between users — no polling, no delays.</p>
+            <p>The embedded Groq AI assistant understands context and gives concise, conversational answers — just prefix any message with <strong>@ai</strong> and hit send.</p>
         </div>
     </section>
 
+    <!-- ── Deploy ── -->
     <section id="deploy" class="about">
         <div class="about-content">
             <h2>Deploy Anywhere</h2>
-            <p>ChatUp is designed for easy deployment in various environments. Whether you're running it locally, in Docker containers, or on cloud platforms, ChatUp adapts to your needs.</p>
-            <p>With our Docker integration, you can deploy the application consistently across different environments with minimal configuration.</p>
+            <p>ChatUp is designed for easy deployment in any environment. Whether you're running it locally, in Docker containers, or on cloud platforms, ChatUp adapts to your infrastructure.</p>
+            <p>A production-ready Dockerfile is included. Set your <code>GROQ_API_KEY</code> environment variable and you're live.</p>
         </div>
     </section>
 
+    <!-- ── CTA ── -->
     <section class="cta">
-        <h2>Ready to Start Chatting?</h2>
-        <p>Join the conversation now and connect with others in real-time.</p>
-        <a href="index.html" class="cta-button">Enter Chat Room</a>
+        <div class="cta-inner">
+            <h2>Ready to Start Chatting?</h2>
+            <p>Join the conversation — and ask the AI anything.</p>
+            <a href="index.html" class="cta-button">Enter Chat Room →</a>
+        </div>
     </section>
 
+    <!-- ── Footer ── -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
                 <h2>ChatUp</h2>
-                <p>Modern Real-time Chat</p>
+                <p>Modern real-time chat with AI</p>
             </div>
             <div class="footer-links">
                 <h3>Links</h3>
@@ -107,19 +148,22 @@
             <div class="footer-tech">
                 <h3>Technology</h3>
                 <p>Spring Boot</p>
-                <p>WebSocket</p>
-                <p>STOMP</p>
-                <p>JavaScript</p>
+                <p>WebSocket / STOMP</p>
+                <p>Groq AI (LLaMA)</p>
+                <p>Vanilla JavaScript</p>
                 <p>Docker</p>
             </div>
             <div class="footer-github">
                 <h3>Open Source</h3>
-                <a href="https://github.com/HassanYosuf/ChatUp" target="_blank" class="github-link">View on GitHub</a>
+                <a href="https://github.com/HassanYosuf/ChatUp" target="_blank" class="github-link">
+                    ⭐ View on GitHub
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ChatUp. All rights reserved.</p>
+            <p>&copy; 2025 ChatUp. Built with Spring Boot & Groq AI.</p>
         </div>
     </footer>
+
 </body>
 </html>

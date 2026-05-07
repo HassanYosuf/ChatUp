@@ -1,6 +1,8 @@
 package com.chatup.chatup.Controller;
 
 import com.chatup.chatup.model.ChatMessage;
+import com.chatup.chatup.service.ClaudeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -11,6 +13,9 @@ import java.util.Objects;
 
 @Controller
 public class ChatController {
+
+    @Autowired
+    private ClaudeService claudeService;
 
     public static void sendActiveUsersList() {
     }
@@ -25,6 +30,15 @@ public class ChatController {
     @MessageMapping("/chat.send")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+        if (chatMessage.getContent().startsWith("@ai ")) {
+            String question = chatMessage.getContent().substring(4);
+            String reply = claudeService.ask(question, chatMessage.getSender());
+            ChatMessage aiMessage = new ChatMessage();
+            aiMessage.setType(ChatMessage.MessageType.CHAT);
+            aiMessage.setSender("AI Assistant");
+            aiMessage.setContent(reply);
+            return aiMessage;
+        }
         return chatMessage;
     }
 }

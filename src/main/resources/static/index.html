@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>ChatUp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>ChatUp — Real-time Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 <noscript>
-    <h2>Oops! It seems this browser doesn't support JavaScript</h2>
+    <h2>Please enable JavaScript to use ChatUp.</h2>
 </noscript>
 
+<!-- ── Login Page ── -->
 <div id="username-page">
     <div class="username-page-container">
-        <h1 class="title">Enter your name</h1>
+        <div class="login-logo">
+            <div class="login-logo-mark">💬</div>
+            <h2>ChatUp</h2>
+            <p>Real-time messaging, powered by AI</p>
+        </div>
+        <p class="login-title">Enter your name to join</p>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Name"
+                <input type="text" id="name" placeholder="Your name..."
                        autocomplete="off" class="form-control" />
             </div>
             <div class="form-group">
-                <button type="submit" class="accent username-submit">Start chatting</button>
+                <button type="submit" class="username-submit">Start Chatting →</button>
             </div>
         </form>
+        <p class="login-hint">Tip: type <strong>@ai</strong> to chat with the AI assistant</p>
     </div>
 </div>
 
+<!-- ── Chat Page ── -->
 <div id="chat-page" class="hidden">
     <div class="chat-container">
         <div class="chat-header">
-            <button type="button" id="exit-chat" class="exit-btn">Exit</button>
-            <h2>Chat Room</h2>
-                    <a href="landing.html" class="back-btn">Back to Home</a>
+            <button type="button" id="exit-chat" class="exit-btn">← Exit</button>
+            <div class="chat-header-center">
+                <h2>Chat Room</h2>
+                <span class="chat-header-hint">type @ai to ask the bot</span>
+            </div>
+            <a href="landing.html" class="back-btn">Home</a>
         </div>
         <div class="connecting">Connecting to chat...</div>
         <ul id="messageArea">
-            <li class="empty-message">No messages yet. Start the conversation!</li>
+            <li class="empty-message">No messages yet — say hello! 👋</li>
         </ul>
         <form id="messageForm" name="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Type a message..."
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" id="message"
+                           placeholder="Type a message... or @ai to ask the bot"
                            autocomplete="off" class="form-control" autofocus />
-                    <button type="submit" class="primary">Send</button>
+                    <div id="ai-suggestion" class="hidden">
+                        <div class="ai-suggestion-item">
+                            <span class="ai-sug-avatar">✦</span>
+                            <span class="ai-sug-text"><strong>@ai</strong> — Ask the AI assistant</span>
+                            <kbd class="ai-sug-key">Tab</kbd>
+                        </div>
+                    </div>
                 </div>
+                <button type="submit" class="send-btn" title="Send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
             </div>
         </form>
+
     </div>
 </div>
 
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
