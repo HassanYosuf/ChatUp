@@ -12,7 +12,7 @@
 
 ChatUp is a modern, real-time chat application built with Spring Boot and WebSocket technology. It provides a seamless messaging experience with a clean, responsive user interface. This application demonstrates the implementation of real-time communication using WebSockets in a Java Spring Boot environment.
 
-<img src="Snaps/Landing page.png" alt="Landing Page">
+<img src="Snaps%20V2/Landing%20page.png" alt="Landing Page V2">
 
 ## ✨ Features
 
@@ -22,6 +22,12 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 - **Message History**: View all messages exchanged in the current session
 - **Colorful User Avatars**: Automatically generated colorful avatars based on usernames
 - **User-friendly Notifications**: System messages for user activity
+
+### AI Assistant (v2)
+- **`@ai` command**: Prefix any message with `@ai` to query the Groq-powered LLaMA model
+- **Markdown rendering**: AI replies render bold, code blocks, lists, and more
+- **Autocomplete popup**: Typing `@` shows a suggestion — press Tab to complete `@ai`
+- **Username context**: The AI knows who asked, making replies more personal
 
 ### User Interface
 - **Responsive Design**: Fully responsive layout that works on desktops, tablets, and mobile devices
@@ -38,6 +44,15 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 - **CSS Variables**: Theme-based styling with CSS custom properties for easy customization
 - **Cross-browser Compatibility**: Works on all modern browsers
 
+## 🤖 AI Assistant (v2)
+
+ChatUp v2 adds a built-in Groq-powered AI assistant. Type `@ai` followed by any question in the chat room and the AI replies instantly — right inside the conversation, visible to everyone.
+
+- Powered by **Groq** (LLaMA 3.3 70B) for near-instant responses
+- Replies render with **Markdown** formatting (bold, code blocks, lists)
+- Autocomplete popup appears when you type `@` — press **Tab** to confirm
+- No separate window or tab needed — the AI is part of the room
+
 ## 🛠️ Technology Stack
 
 ### Backend
@@ -53,6 +68,12 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 - **JavaScript (ES6+)**: Modern JavaScript with ES6+ features
 - **SockJS**: WebSocket emulation for browsers without WebSocket support
 - **STOMP.js**: STOMP client for JavaScript
+- **marked.js**: Markdown rendering for AI replies
+- **DOMPurify**: XSS sanitisation for AI-generated HTML
+
+### AI (v2)
+- **Groq API**: LLaMA 3.3 70B — ultra-fast inference
+- **OkHttp**: HTTP client for Groq API calls
 
 ### DevOps
 - **Docker**: Containerization for consistent deployment
@@ -80,12 +101,21 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
    ./mvnw clean install
    ```
 
-3. Run the application:
+3. Set the Groq API key environment variable:
+   ```bash
+   # macOS / Linux
+   export GROQ_API_KEY=your_key_here
+
+   # Windows PowerShell
+   $env:GROQ_API_KEY="your_key_here"
+   ```
+
+4. Run the application:
    ```bash
    ./mvnw spring-boot:run
    ```
 
-4. Access the application:
+5. Access the application:
    Open your browser and navigate to `http://localhost:8080`
    
 ## 🚢 Deploying to Render
@@ -96,8 +126,8 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
    - Choose the appropriate instance type (at least 512MB RAM recommended)
    - Set the "Port" environment variable to match the port in your application (default: 8080)
 
-2. Configure environment variables (if needed):
-   - Add any custom environment variables required by your application
+2. Configure environment variables:
+   - Add `GROQ_API_KEY` with your Groq API key — required for the AI assistant to work
 
 3. Deploy:
    - Click "Create Web Service" and Render will automatically build and deploy your application
@@ -112,13 +142,31 @@ ChatUp is a modern, real-time chat application built with Spring Boot and WebSoc
 6. **Real-time Updates**: Messages appear instantly for all connected users.
 
 ## 🔍 Project Structure
-<img src="Snaps/process.png" alt="process">
 
-## 📷 Snap Shots
-<img src="Snaps/Auth - window.png" alt="Auth - window" width="400" height="200">
-<img src="Snaps/Chat Room - 1.png" alt="Chat Room" width="500" height="400">
-<img src="Snaps/New User Joined.png" alt="New User Joined" width="500" height="50">
-<img src="Snaps/Final Chat.png" alt="Final Chat" width="500" height="500">
+<img src="Snaps%20V2/process.png" alt="Project Structure">
+
+## 📷 Screenshots — V1 → V2
+
+### Landing Page
+| V1 | V2 |
+|:--:|:--:|
+| <img src="Snaps%20V1/Landing%20page.png" alt="Landing V1" width="420"> | <img src="Snaps%20V2/Landing%20page.png" alt="Landing V2" width="420"> |
+
+### Login / Auth Screen
+| V1 | V2 |
+|:--:|:--:|
+| <img src="Snaps%20V1/Auth%20-%20window.png" alt="Auth V1" width="420"> | <img src="Snaps%20V2/Auth%20-%20window.png" alt="Auth V2" width="420"> |
+
+### Chat Room
+| V1 | V2 (with AI replies) |
+|:--:|:--:|
+| <img src="Snaps%20V1/Chat%20Room%20-%201.png" alt="Chat V1" width="420"> | <img src="Snaps%20V2/Chat%20Room%20-%201.png" alt="Chat V2" width="420"> |
+
+### User Presence & Final Chat
+| V1 | V2 |
+|:--:|:--:|
+| <img src="Snaps%20V1/New%20User%20Joined.png" alt="Join V1" width="420"> | <img src="Snaps%20V2/New%20User%20Joined.png" alt="Join V2" width="420"> |
+| <img src="Snaps%20V1/Final%20Chat.png" alt="Final V1" width="420"> | <img src="Snaps%20V2/Final%20Chat.png" alt="Final V2" width="420"> |
 
 
 ### Key Files
