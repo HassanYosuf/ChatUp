@@ -54,8 +54,120 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/chat-illustration.svg" alt="Chat Illustration"
-                     onerror="this.style.display='none'">
+                <svg class="chat-svg" viewBox="0 0 560 450" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.95"/>
+                            <stop offset="100%" stop-color="#160b35" stop-opacity="0.98"/>
+                        </linearGradient>
+                        <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+                        </linearGradient>
+                        <linearGradient id="selfBubble" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                        <linearGradient id="aiBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                        <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6366f1" stop-opacity="0.22"/>
+                            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.04"/>
+                        </linearGradient>
+                        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="10" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                        <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+                            <feDropShadow dx="0" dy="10" stdDeviation="28" flood-color="#6366f1" flood-opacity="0.2"/>
+                        </filter>
+                        <clipPath id="cardClip">
+                            <rect x="16" y="16" width="528" height="418" rx="24"/>
+                        </clipPath>
+                    </defs>
+
+                    <!-- Ambient glow -->
+                    <ellipse cx="280" cy="225" rx="260" ry="210" fill="url(#glowGrad)" filter="url(#softGlow)"/>
+
+                    <!-- Card -->
+                    <rect x="16" y="16" width="528" height="418" rx="24"
+                          fill="url(#cardGrad)" stroke="rgba(99,102,241,0.32)" stroke-width="1.5"
+                          filter="url(#cardShadow)"/>
+
+                    <!-- Header -->
+                    <rect x="16" y="16" width="528" height="62" rx="24" fill="url(#headerGrad)" clip-path="url(#cardClip)"/>
+                    <rect x="16" y="54" width="528" height="24" fill="url(#headerGrad)"/>
+
+                    <!-- Window dots -->
+                    <circle cx="50" cy="47" r="7" fill="#ff5f57"/>
+                    <circle cx="72" cy="47" r="7" fill="#febc2e"/>
+                    <circle cx="94" cy="47" r="7" fill="#28c840"/>
+
+                    <!-- Online indicator + title -->
+                    <circle cx="264" cy="44" r="5" fill="#28c840" opacity="0.9"/>
+                    <text x="275" y="50" fill="white" font-family="Inter,sans-serif"
+                          font-size="14" font-weight="600" opacity="0.95">Chat Room</text>
+
+                    <!-- Groq badge top-right -->
+                    <rect x="418" y="31" width="96" height="26" rx="13"
+                          fill="rgba(99,102,241,0.28)" stroke="rgba(99,102,241,0.45)" stroke-width="1"/>
+                    <text x="466" y="48" text-anchor="middle" fill="#a5b4fc"
+                          font-family="Inter,sans-serif" font-size="11" font-weight="500">Groq AI ⚡</text>
+
+                    <!-- ── Message 1: user A (left) ── -->
+                    <circle cx="54" cy="114" r="16" fill="#6366f1" opacity="0.85"/>
+                    <text x="54" y="120" text-anchor="middle" fill="white"
+                          font-family="Inter,sans-serif" font-size="13" font-weight="700">A</text>
+                    <rect x="78" y="96" width="210" height="46" rx="4" ry="18"
+                          fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <rect x="92" y="108" width="156" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
+                    <rect x="92" y="122" width="108" height="8" rx="4" fill="rgba(255,255,255,0.25)"/>
+
+                    <!-- ── Message 2: self (right) ── -->
+                    <rect x="282" y="160" width="220" height="46" rx="18" ry="4"
+                          fill="url(#selfBubble)"/>
+                    <rect x="296" y="172" width="168" height="8" rx="4" fill="rgba(255,255,255,0.7)"/>
+                    <rect x="296" y="186" width="120" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
+
+                    <!-- ── Message 3: user B (left) ── -->
+                    <circle cx="54" cy="236" r="16" fill="#32c787" opacity="0.85"/>
+                    <text x="54" y="242" text-anchor="middle" fill="white"
+                          font-family="Inter,sans-serif" font-size="13" font-weight="700">B</text>
+                    <rect x="78" y="218" width="186" height="46" rx="4" ry="18"
+                          fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    <rect x="92" y="230" width="138" height="8" rx="4" fill="rgba(255,255,255,0.45)"/>
+                    <rect x="92" y="244" width="96" height="8" rx="4" fill="rgba(255,255,255,0.25)"/>
+
+                    <!-- ── AI reply ── -->
+                    <rect x="36" y="282" width="428" height="96" rx="18"
+                          fill="rgba(99,102,241,0.12)" stroke="url(#aiBorder)" stroke-width="1.5"/>
+                    <circle cx="66" cy="310" r="18" fill="url(#selfBubble)"/>
+                    <text x="66" y="316" text-anchor="middle" fill="white"
+                          font-family="Inter,sans-serif" font-size="14">✦</text>
+                    <text x="94" y="302" fill="#a5b4fc" font-family="Inter,sans-serif"
+                          font-size="11" font-weight="600" letter-spacing="0.6">✦ AI ASSISTANT</text>
+                    <rect x="94" y="311" width="340" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+                    <rect x="94" y="325" width="288" height="8" rx="4" fill="rgba(255,255,255,0.33)"/>
+                    <rect x="94" y="339" width="210" height="8" rx="4" fill="rgba(255,255,255,0.18)"/>
+
+                    <!-- ── Input bar ── -->
+                    <rect x="36" y="396" width="428" height="22" rx="11"
+                          fill="rgba(255,255,255,0.05)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+                    <text x="52" y="411" fill="#818cf8" font-family="'Courier New',monospace"
+                          font-size="11" font-weight="700">@ai</text>
+                    <text x="80" y="411" fill="rgba(255,255,255,0.28)" font-family="Inter,sans-serif"
+                          font-size="11"> ask anything...</text>
+                    <rect x="208" y="401" width="2" height="13" rx="1" fill="#6366f1" opacity="0.9"/>
+                    <circle cx="446" cy="407" r="14" fill="url(#selfBubble)"/>
+                    <text x="446" y="412" text-anchor="middle" fill="white" font-size="13">→</text>
+
+                    <!-- Sparkles -->
+                    <text x="490" y="120" fill="rgba(139,92,246,0.65)" font-size="22" font-family="sans-serif">✦</text>
+                    <text x="516" y="190" fill="rgba(99,102,241,0.38)" font-size="14" font-family="sans-serif">✦</text>
+                    <text x="478" y="258" fill="rgba(139,92,246,0.28)" font-size="11" font-family="sans-serif">✦</text>
+                </svg>
             </div>
         </div>
     </section>

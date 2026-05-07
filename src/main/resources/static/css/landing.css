@@ -245,7 +245,7 @@ nav {
 }
 
 .hero-image {
-  flex: 0 0 440px;
+  flex: 0 0 520px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -260,6 +260,21 @@ nav {
   border-radius: var(--r-md);
 }
 .hero-image img:hover { transform: scale(1.03) translateY(-4px); }
+
+.chat-svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  filter: drop-shadow(0 24px 48px rgba(99,102,241,0.35));
+  transition: transform 0.4s ease;
+  animation: float 6s ease-in-out infinite;
+}
+.chat-svg:hover { transform: scale(1.02) translateY(-4px); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
 
 /* stats row */
 .hero-stats {
